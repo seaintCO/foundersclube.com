@@ -1,670 +1,356 @@
-<!DOCTYPE html>
+<!-- REPLACE YOUR CURRENT HERO SECTION WITH THIS -->
 
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Founders Clube — Private Rooftop Session</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:'Inter',sans-serif;
-      background:#020202;
-      color:white;
-      overflow-x:hidden;
-    }
-
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      opacity:.04;
-      z-index:999;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    }
-
-    .glass{
-      background:rgba(255,255,255,.03);
-      backdrop-filter:blur(20px);
-      -webkit-backdrop-filter:blur(20px);
-      border:1px solid rgba(255,255,255,.06);
-      box-shadow:0 10px 50px rgba(0,0,0,.45);
-    }
-
-    .glass-strong{
-      background:rgba(255,255,255,.05);
-      backdrop-filter:blur(30px);
-      border:1px solid rgba(255,255,255,.08);
-    }
-
-    .city-bg{
-      position:absolute;
-      inset:0;
-      overflow:hidden;
-      z-index:0;
-    }
-
-    .city-gradient{
-      position:absolute;
-      inset:0;
-      background:
-      radial-gradient(circle at top, rgba(255,255,255,.08), transparent 35%),
-      linear-gradient(to bottom,#050505 0%,#020202 100%);
-      z-index:2;
-    }
-
-    .grid{
-      position:absolute;
-      inset:0;
-      background-image:
-      linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size:80px 80px;
-      opacity:.25;
-    }
-
-    .tower{
-      position:absolute;
-      bottom:0;
-      background:linear-gradient(to top,#070707,#141414);
-      border:1px solid rgba(255,255,255,.04);
-      box-shadow:0 0 40px rgba(255,255,255,.03);
-    }
-
-    .tower::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(
-      to bottom,
-      rgba(255,255,255,.08),
-      transparent 25%
-      );
-    }
-
-    .fog{
-      position:absolute;
-      border-radius:999px;
-      filter:blur(100px);
-      animation:fog 20s infinite alternate ease-in-out;
-    }
-
-    @keyframes fog{
-      from{
-        transform:translateX(-50px) translateY(0px);
-      }
-      to{
-        transform:translateX(50px) translateY(-20px);
-      }
-    }
-
-    .light-dot{
-      position:absolute;
-      width:3px;
-      height:3px;
-      border-radius:999px;
-      background:white;
-      opacity:.7;
-      animation:pulse 3s infinite;
-    }
-
-    @keyframes pulse{
-      0%{opacity:.2;transform:scale(.8);}
-      50%{opacity:1;transform:scale(1.4);}
-      100%{opacity:.2;transform:scale(.8);}
-    }
-
-    .hero-title{
-      line-height:.95;
-      letter-spacing:-.06em;
-    }
-
-    .metric-card{
-      transition:.5s ease;
-    }
-
-    .metric-card:hover{
-      transform:translateY(-8px);
-      border-color:rgba(255,255,255,.18);
-    }
-
-    .live-line{
-      position:absolute;
-      height:2px;
-      background:linear-gradient(to right,transparent,rgba(255,255,255,.8),transparent);
-      animation:scan 5s linear infinite;
-    }
-
-    @keyframes scan{
-      from{
-        transform:translateX(-100%);
-      }
-      to{
-        transform:translateX(200%);
-      }
-    }
-
-    .floating-ui{
-      animation:float 8s infinite ease-in-out;
-    }
-
-    @keyframes float{
-      0%{transform:translateY(0px);}
-      50%{transform:translateY(-14px);}
-      100%{transform:translateY(0px);}
-    }
-
-    .input{
-      width:100%;
-      background:transparent;
-      border:none;
-      border-bottom:1px solid rgba(255,255,255,.1);
-      padding:16px 0;
-      color:white;
-      outline:none;
-      transition:.3s;
-    }
-
-    .input:focus{
-      border-color:rgba(255,255,255,.5);
-    }
-
-    .section-blur{
-      position:absolute;
-      width:700px;
-      height:700px;
-      border-radius:999px;
-      background:rgba(255,255,255,.03);
-      filter:blur(140px);
-      z-index:0;
-    }
-
-    .ticker{
-      overflow:hidden;
-      white-space:nowrap;
-      position:relative;
-    }
-
-    .ticker-track{
-      display:inline-block;
-      animation:ticker 30s linear infinite;
-    }
-
-    @keyframes ticker{
-      from{
-        transform:translateX(0);
-      }
-      to{
-        transform:translateX(-50%);
-      }
-    }
-
-    ::-webkit-scrollbar{
-      width:4px;
-    }
-
-    ::-webkit-scrollbar-thumb{
-      background:#2a2a2a;
-    }
-
-  </style>
-
-</head>
-
-<body>
-
-<!-- HERO -->
-
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-
-  <div class="city-bg">
+<section class="relative min-h-screen flex items-center overflow-hidden bg-[#030303]">
 
 ```
-<div class="grid"></div>
+<!-- CINEMATIC SKYLINE -->
+<div class="absolute inset-0 overflow-hidden">
 
-<div class="city-gradient"></div>
+    <!-- REAL CITY BACKGROUND -->
+    <img 
+        src="https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=2400&auto=format&fit=crop"
+        class="absolute inset-0 w-full h-full object-cover scale-105 opacity-30"
+    >
 
-<!-- Towers -->
-<div class="tower left-[5%] w-[120px] h-[50vh]"></div>
-<div class="tower left-[16%] w-[90px] h-[70vh]"></div>
-<div class="tower left-[28%] w-[160px] h-[58vh]"></div>
-<div class="tower left-[45%] w-[130px] h-[80vh]"></div>
-<div class="tower left-[62%] w-[180px] h-[62vh]"></div>
-<div class="tower left-[82%] w-[120px] h-[72vh]"></div>
+    <!-- DARK OVERLAY -->
+    <div class="absolute inset-0 bg-black/65"></div>
 
-<!-- Fog -->
-<div class="fog bg-white/5 w-[600px] h-[600px] bottom-[-200px] left-[-100px]"></div>
-<div class="fog bg-blue-500/10 w-[500px] h-[500px] top-[10%] right-[-100px]"></div>
+    <!-- TOP GRADIENT -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-[#030303]"></div>
 
-<!-- Lights -->
-<div class="light-dot top-[20%] left-[20%]"></div>
-<div class="light-dot top-[35%] left-[55%]"></div>
-<div class="light-dot top-[45%] left-[80%]"></div>
-<div class="light-dot top-[25%] left-[70%]"></div>
+    <!-- SIDE VIGNETTE -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.75)_100%)]"></div>
 
-<!-- Floating UI -->
-<div class="floating-ui glass absolute top-[20%] right-[8%] hidden lg:block rounded-2xl p-5 w-[240px]">
-  <div class="text-[10px] tracking-[.3em] text-neutral-500 mb-4">
-    NETWORK INTELLIGENCE
-  </div>
+    <!-- GRID -->
+    <div class="absolute inset-0 bg-grid-pattern opacity-[0.15]"></div>
 
-  <div class="flex items-end gap-2 h-20 mb-4">
-    <div class="bg-white/10 w-full h-[25%] rounded"></div>
-    <div class="bg-white/10 w-full h-[40%] rounded"></div>
-    <div class="bg-white/20 w-full h-[65%] rounded"></div>
-    <div class="bg-white/30 w-full h-[85%] rounded"></div>
-  </div>
+    <!-- FOG -->
+    <div class="absolute -bottom-[15%] left-[10%] w-[45rem] h-[45rem] bg-white/[0.03] rounded-full blur-[120px] animate-fog"></div>
 
-  <div class="text-xs text-neutral-400">
-    Real-time founder synchronization
-  </div>
-</div>
-```
+    <div class="absolute top-[10%] right-[5%] w-[35rem] h-[35rem] bg-blue-500/[0.04] rounded-full blur-[120px] animate-fog"></div>
 
-  </div>
+    <!-- CITY LIGHTS -->
+    <div class="absolute top-[18%] left-[14%] w-1 h-1 bg-white rounded-full blur-[1px] animate-pulse"></div>
+    <div class="absolute top-[34%] right-[20%] w-1 h-1 bg-blue-400 rounded-full blur-[1px] animate-pulse"></div>
+    <div class="absolute top-[42%] left-[70%] w-1 h-1 bg-white rounded-full blur-[1px] animate-pulse"></div>
 
-  <!-- NAV -->
-
-  <nav class="absolute top-0 left-0 w-full flex justify-between items-center px-8 py-8 z-50">
-    <div class="tracking-[.4em] text-xs uppercase text-white/70">
-      FOUNDERS CLUBE
-    </div>
-
-```
-<a href="#apply" class="text-xs uppercase tracking-[.3em] border-b border-white/20 pb-1 hover:border-white transition">
-  Apply
-</a>
-```
-
-  </nav>
-
-  <!-- HERO CONTENT -->
-
-  <div class="relative z-30 max-w-7xl mx-auto px-6 w-full">
-
-```
-<div class="max-w-4xl">
-
-  <div class="glass inline-flex items-center gap-3 px-5 py-2 rounded-full mb-10">
-    <div class="w-2 h-2 rounded-full bg-white/50"></div>
-
-    <div class="text-[11px] uppercase tracking-[.3em] text-neutral-400">
-      Nashville • June 13 • L27 Rooftop
-    </div>
-  </div>
-
-  <h1 class="hero-title text-[58px] md:text-[120px] font-[300] mb-8">
-    For founders,<br>
-    <span class="text-white/35">by founders.</span>
-  </h1>
-
-  <p class="max-w-2xl text-lg text-neutral-400 leading-relaxed mb-14">
-    A private rooftop gathering for the founders, operators,
-    investors, creators, and builders shaping the future of
-    technology, capital, media, and influence.
-  </p>
-
-  <div class="flex flex-col sm:flex-row gap-5">
-
-    <a href="#apply"
-    class="glass-strong px-8 py-5 rounded-xl text-sm tracking-[.2em] uppercase hover:bg-white/10 transition flex items-center gap-3 w-fit">
-
-      Request Access
-
-      <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
-
-    </a>
-
-    <a href="#network"
-    class="text-sm uppercase tracking-[.2em] text-white/50 hover:text-white transition flex items-center gap-3">
-
-      View Network
-
-    </a>
-
-  </div>
+    <!-- NETWORK LINE -->
+    <div class="absolute top-[35%] left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
 </div>
-```
 
-  </div>
+<!-- FLOATING METRIC CARD -->
+<div class="absolute top-[20%] right-[7%] hidden xl:block z-20 animate-float">
 
-</section>
+    <div class="glass-panel rounded-2xl p-5 w-[260px] relative overflow-hidden">
+
+        <div class="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent"></div>
+
+        <div class="relative z-10">
+
+            <div class="flex items-center justify-between mb-6">
+                <div class="text-[10px] tracking-[0.3em] uppercase text-neutral-500">
+                    Live Network
+                </div>
+
+                <iconify-icon 
+                    icon="solar:graph-up-linear" 
+                    class="text-white/40 text-lg"
+                ></iconify-icon>
+            </div>
+
+            <div class="text-3xl font-light tracking-tight text-white mb-1">
+                $26M+
+            </div>
+
+            <div class="text-xs text-neutral-500 mb-6">
+                Combined Founder Net Worth
+            </div>
+
+            <div class="flex items-end gap-1 h-16">
+
+                <div class="w-full bg-white/5 rounded-t h-[20%]"></div>
+                <div class="w-full bg-white/5 rounded-t h-[35%]"></div>
+                <div class="w-full bg-white/10 rounded-t h-[48%]"></div>
+                <div class="w-full bg-white/10 rounded-t h-[62%]"></div>
+                <div class="w-full bg-white/20 rounded-t h-[85%]"></div>
+                <div class="w-full bg-white/30 rounded-t h-full relative overflow-hidden">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-transparent via-white/20 to-transparent animate-pulse"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 <!-- LIVE TICKER -->
+<div class="absolute bottom-0 left-0 w-full border-t border-white/[0.06] bg-black/20 backdrop-blur-xl z-20 overflow-hidden">
 
-<section class="border-y border-white/[.05] py-4 overflow-hidden bg-black">
+    <div class="ticker-wrap">
 
-  <div class="ticker">
-    <div class="ticker-track text-xs uppercase tracking-[.3em] text-neutral-500">
+        <div class="ticker">
 
-```
-  Founder Verified • Capital Entering Network • Rooftop Access Allocated • Investor Confirmed • AI Founder Registered • Media Operator Joined • Nashville Rooftop Session •
+            <span>Founder Verified</span>
+            <span>Capital Entering Room</span>
+            <span>Investor Confirmed</span>
+            <span>Creator Accepted</span>
+            <span>AI Builder Registered</span>
+            <span>Private Rooftop Session</span>
+            <span>Founder Verified</span>
+            <span>Capital Entering Room</span>
+            <span>Investor Confirmed</span>
+            <span>Creator Accepted</span>
 
-  Founder Verified • Capital Entering Network • Rooftop Access Allocated • Investor Confirmed • AI Founder Registered • Media Operator Joined • Nashville Rooftop Session •
+        </div>
+
+    </div>
+
+</div>
+
+<!-- HERO CONTENT -->
+<div class="relative z-30 max-w-7xl mx-auto w-full px-6 md:px-10">
+
+    <div class="max-w-4xl">
+
+        <!-- BADGE -->
+        <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass-panel mb-10">
+
+            <div class="w-1.5 h-1.5 rounded-full bg-white/60"></div>
+
+            <div class="text-[10px] uppercase tracking-[0.35em] text-neutral-400">
+                Nashville • June 13 • L27 Rooftop
+            </div>
+
+        </div>
+
+        <!-- HEADLINE -->
+        <h1 class="text-[4rem] md:text-[8rem] leading-[0.92] tracking-[-0.08em] font-light text-white mb-8">
+
+            For founders,<br>
+
+            <span class="text-white/35">
+                by founders.
+            </span>
+
+        </h1>
+
+        <!-- SUB -->
+        <p class="max-w-2xl text-lg md:text-xl text-neutral-400 leading-relaxed font-light mb-14">
+
+            A private rooftop gathering for the founders, operators, 
+            creators, investors, and builders shaping what’s next.
+
+        </p>
+
+        <!-- BUTTONS -->
+        <div class="flex flex-col sm:flex-row gap-5">
+
+            <a 
+                href="#apply"
+                class="glass-panel group px-8 py-5 rounded-xl flex items-center justify-center gap-3 text-sm tracking-[0.25em] uppercase hover:border-white/20 hover:bg-white/[0.06] transition-all duration-500"
+            >
+
+                Request Access
+
+                <iconify-icon 
+                    icon="solar:arrow-right-linear"
+                    class="group-hover:translate-x-1 transition-transform"
+                ></iconify-icon>
+
+            </a>
+
+            <a 
+                href="#network"
+                class="text-sm tracking-[0.25em] uppercase text-neutral-500 hover:text-white transition-all duration-300 flex items-center gap-3"
+            >
+
+                View Network
+
+            </a>
+
+        </div>
+
+        <!-- LIVE STATUS -->
+        <div class="mt-16 flex flex-wrap gap-6">
+
+            <div class="glass-panel px-5 py-4 rounded-xl min-w-[180px]">
+
+                <div class="text-[10px] uppercase tracking-[0.3em] text-neutral-500 mb-2">
+                    Founder Seats
+                </div>
+
+                <div class="text-2xl font-light tracking-tight">
+                    73 / 100
+                </div>
+
+            </div>
+
+            <div class="glass-panel px-5 py-4 rounded-xl min-w-[180px]">
+
+                <div class="text-[10px] uppercase tracking-[0.3em] text-neutral-500 mb-2">
+                    Combined Reach
+                </div>
+
+                <div class="text-2xl font-light tracking-tight">
+                    150M+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 ```
-
-  </div>
 
 </section>
 
-<!-- NETWORK -->
+<!-- ADD THIS CSS UNDER YOUR STYLE TAG -->
 
-<section id="network" class="relative py-32 px-6 overflow-hidden">
+<style>
 
-  <div class="section-blur top-0 left-[-200px]"></div>
+.ticker-wrap{
+    width:100%;
+    overflow:hidden;
+}
 
-  <div class="max-w-7xl mx-auto relative z-10">
+.ticker{
+    display:flex;
+    gap:5rem;
+    width:max-content;
+    padding:1rem 0;
+    animation:ticker 30s linear infinite;
+}
+
+.ticker span{
+    font-size:10px;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    color:#737373;
+    white-space:nowrap;
+}
+
+@keyframes ticker{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+</style>
+
+<!-- REPLACE YOUR FORM WITH THIS -->
+
+<form 
+    action="https://formspree.io/f/mkoeneog"
+    method="POST"
+    class="space-y-6"
+>
 
 ```
-<div class="flex flex-col md:flex-row justify-between items-end gap-10 mb-20">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-  <div>
-    <div class="text-xs uppercase tracking-[.3em] text-neutral-500 mb-4">
-      Live Intelligence
-    </div>
+    <input 
+        type="text" 
+        name="name"
+        placeholder="Full Name" 
+        class="custom-input w-full pb-3 text-sm"
+        required
+    >
 
-    <h2 class="text-5xl font-[300] tracking-tight">
-      Network Capital
-    </h2>
-  </div>
-
-  <p class="max-w-md text-neutral-500 leading-relaxed">
-    Real-time aggregation of founder capital, audience influence,
-    operator leverage, and strategic relationships entering the room.
-  </p>
+    <input 
+        type="text" 
+        name="company"
+        placeholder="Brand / Company" 
+        class="custom-input w-full pb-3 text-sm"
+        required
+    >
 
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-  <!-- MAIN -->
-  <div class="metric-card glass col-span-2 rounded-3xl p-10 relative overflow-hidden">
+    <input 
+        type="text"
+        name="industry"
+        placeholder="Industry"
+        class="custom-input w-full pb-3 text-sm"
+    >
 
-    <div class="live-line top-20 w-[300px]"></div>
-
-    <div class="text-xs uppercase tracking-[.3em] text-neutral-500 mb-8">
-      Combined Net Worth Attending
-    </div>
-
-    <div id="worthCounter"
-    class="text-6xl md:text-8xl font-[300] tracking-tight mb-10">
-      $2.1M
-    </div>
-
-    <div class="grid grid-cols-6 gap-2 h-32">
-
-      <div class="bg-white/5 rounded-t-xl h-[20%] self-end"></div>
-      <div class="bg-white/5 rounded-t-xl h-[35%] self-end"></div>
-      <div class="bg-white/10 rounded-t-xl h-[55%] self-end"></div>
-      <div class="bg-white/10 rounded-t-xl h-[70%] self-end"></div>
-      <div class="bg-white/20 rounded-t-xl h-[88%] self-end"></div>
-      <div class="bg-white/30 rounded-t-xl h-full self-end"></div>
-
-    </div>
-
-  </div>
-
-  <!-- SIDE -->
-  <div class="metric-card glass rounded-3xl p-8 flex flex-col justify-between">
-
-    <div>
-      <div class="text-xs uppercase tracking-[.3em] text-neutral-500 mb-5">
-        Combined Reach
-      </div>
-
-      <div class="text-5xl font-[300] mb-3">
-        150M+
-      </div>
-
-      <div class="text-sm text-neutral-500">
-        Audience influence across founders, creators, investors, and operators.
-      </div>
-    </div>
-
-    <div class="mt-10 flex gap-2 items-end h-20">
-      <div class="bg-white/10 w-full h-[30%] rounded"></div>
-      <div class="bg-white/10 w-full h-[50%] rounded"></div>
-      <div class="bg-white/20 w-full h-[75%] rounded"></div>
-      <div class="bg-white/30 w-full h-full rounded"></div>
-    </div>
-
-  </div>
+    <input 
+        type="text"
+        name="audience"
+        placeholder="Audience Size"
+        class="custom-input w-full pb-3 text-sm"
+    >
 
 </div>
-```
 
-  </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-</section>
+    <input 
+        type="text"
+        name="social"
+        placeholder="Instagram / Social"
+        class="custom-input w-full pb-3 text-sm"
+    >
 
-<!-- WHO ATTENDS -->
-
-<section class="py-32 px-6 border-t border-white/[.05]">
-
-  <div class="max-w-7xl mx-auto">
-
-```
-<h2 class="text-5xl font-[300] mb-20 tracking-tight">
-  The Room
-</h2>
-
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-
-  <div class="glass aspect-square rounded-3xl p-8 flex flex-col justify-end hover:border-white/20 transition">
-    <div class="text-sm uppercase tracking-[.2em] text-white/90">
-      Founders
-    </div>
-  </div>
-
-  <div class="glass aspect-square rounded-3xl p-8 flex flex-col justify-end hover:border-white/20 transition">
-    <div class="text-sm uppercase tracking-[.2em] text-white/90">
-      Investors
-    </div>
-  </div>
-
-  <div class="glass aspect-square rounded-3xl p-8 flex flex-col justify-end hover:border-white/20 transition">
-    <div class="text-sm uppercase tracking-[.2em] text-white/90">
-      Operators
-    </div>
-  </div>
-
-  <div class="glass aspect-square rounded-3xl p-8 flex flex-col justify-end hover:border-white/20 transition">
-    <div class="text-sm uppercase tracking-[.2em] text-white/90">
-      AI Builders
-    </div>
-  </div>
+    <input 
+        type="url"
+        name="website"
+        placeholder="Website"
+        class="custom-input w-full pb-3 text-sm"
+    >
 
 </div>
-```
 
-  </div>
-
-</section>
-
-<!-- APPLY -->
-
-<section id="apply" class="relative py-40 px-6 border-t border-white/[.05] overflow-hidden">
-
-  <div class="section-blur bottom-[-200px] right-[-200px]"></div>
-
-  <div class="max-w-2xl mx-auto relative z-10">
-
-```
-<div class="glass rounded-[40px] p-10 md:p-14">
-
-  <div class="text-center mb-14">
-
-    <div class="text-xs uppercase tracking-[.3em] text-neutral-500 mb-5">
-      Private Access
-    </div>
-
-    <h2 class="text-5xl font-[300] tracking-tight mb-4">
-      Request Access
-    </h2>
-
-    <p class="text-neutral-500">
-      Applications are reviewed privately.
-    </p>
-
-  </div>
-
-  <form
-  action="https://formspree.io/f/mkoeneog"
-  method="POST"
-  class="space-y-8">
-
-    <div class="grid md:grid-cols-2 gap-8">
-
-      <input
-      type="text"
-      name="name"
-      placeholder="Full Name"
-      class="input"
-      required>
-
-      <input
-      type="text"
-      name="company"
-      placeholder="Brand / Company"
-      class="input"
-      required>
-
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8">
-
-      <input
-      type="text"
-      name="industry"
-      placeholder="Industry"
-      class="input">
-
-      <input
-      type="text"
-      name="audience"
-      placeholder="Audience Size"
-      class="input">
-
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8">
-
-      <input
-      type="text"
-      name="social"
-      placeholder="Instagram / Social"
-      class="input">
-
-      <input
-      type="url"
-      name="website"
-      placeholder="Website"
-      class="input">
-
-    </div>
-
-    <input
+<input 
     type="tel"
     name="phone"
     placeholder="Phone Number"
-    class="input">
+    class="custom-input w-full pb-3 text-sm"
+>
 
-    <textarea
+<textarea 
     name="building"
-    rows="3"
+    rows="2"
     placeholder="What are you currently building?"
-    class="input resize-none"></textarea>
+    class="custom-input w-full py-3 text-sm resize-none"
+></textarea>
 
-    <textarea
+<textarea 
     name="reason"
-    rows="3"
+    rows="2"
     placeholder="Why do you want to attend?"
-    class="input resize-none"></textarea>
+    class="custom-input w-full py-3 text-sm resize-none"
+></textarea>
 
-    <button
-    type="submit"
-    class="w-full bg-white text-black rounded-2xl py-5 uppercase tracking-[.3em] text-sm hover:bg-neutral-200 transition">
+<div class="pt-6">
 
-      Request Access
+    <button 
+        type="submit"
+        class="w-full bg-white text-black py-4 text-sm tracking-[0.25em] uppercase hover:bg-neutral-200 transition-all duration-300 rounded-xl flex justify-center items-center gap-2"
+    >
+
+        Request Access
+
+        <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
 
     </button>
 
-  </form>
+    <div class="text-center mt-4 text-[10px] text-neutral-600 tracking-[0.25em] uppercase">
+        Applications reviewed privately
+    </div>
 
 </div>
 ```
 
-  </div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer class="py-16 border-t border-white/[.05] text-center">
-
-  <div class="tracking-[.5em] text-xs uppercase text-neutral-500 mb-6">
-    Founders Clube
-  </div>
-
-  <div class="text-sm text-neutral-600 mb-8">
-    Presented by SEAINT
-  </div>
-
-  <div class="text-xs italic text-neutral-700 tracking-[.2em]">
-    Built for the black horses.
-  </div>
-
-</footer>
-
-<script>
-
-  // Animated Net Worth Counter
-  const counter = document.getElementById("worthCounter");
-
-  const values = [
-    "$2.1M",
-    "$4.8M",
-    "$8.3M",
-    "$12.4M",
-    "$18.7M",
-    "$26M+"
-  ];
-
-  let i = 0;
-
-  setInterval(() => {
-    counter.style.opacity = "0";
-
-    setTimeout(() => {
-      counter.innerText = values[i];
-      counter.style.opacity = "1";
-      i = (i + 1) % values.length;
-    }, 400);
-
-  }, 2200);
-
-</script>
-
-</body>
-</html>
+</form>
