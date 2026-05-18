@@ -31,8 +31,6 @@
       overflow-x:hidden;
     }
 
-    /* GRAIN */
-
     .grain-overlay{
       position:fixed;
       inset:0;
@@ -41,8 +39,6 @@
       opacity:.04;
       background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
-
-    /* GLASS */
 
     .glass-panel{
       background:rgba(20,20,20,.42);
@@ -71,8 +67,6 @@
       transform:translateY(-2px);
     }
 
-    /* INPUTS */
-
     .custom-input{
       background:transparent;
       border:none;
@@ -87,8 +81,6 @@
       border-bottom:1px solid rgba(255,255,255,.45);
     }
 
-    /* GRID */
-
     .bg-grid-pattern{
       background-image:
       linear-gradient(to right, rgba(255,255,255,.015) 1px, transparent 1px),
@@ -96,8 +88,6 @@
 
       background-size:40px 40px;
     }
-
-    /* FOG */
 
     @keyframes fog-drift{
       0%{
@@ -117,8 +107,6 @@
       animation:fog-drift 30s infinite alternate linear;
     }
 
-    /* FLOAT */
-
     @keyframes float{
       0%{
         transform:translateY(0px);
@@ -136,8 +124,6 @@
     .animate-float{
       animation:float 8s ease-in-out infinite;
     }
-
-    /* TICKER */
 
     .ticker-wrap{
       width:100%;
@@ -171,8 +157,6 @@
       }
     }
 
-    /* MOBILE */
-
     @media(max-width:768px){
 
       h1{
@@ -189,8 +173,6 @@
       }
 
     }
-
-    /* SCROLLBAR */
 
     ::-webkit-scrollbar{
       width:4px;
@@ -296,8 +278,6 @@
 
       <div class="max-w-4xl">
 
-        <!-- DATE -->
-
         <div class="flex flex-wrap items-center gap-3 mb-8">
 
           <div class="glass-panel px-5 py-2 rounded-full border border-white/[0.05] flex items-center gap-3">
@@ -315,8 +295,6 @@
 
         </div>
 
-        <!-- TITLE -->
-
         <h1 class="text-[4rem] md:text-[8rem] font-light tracking-[-0.08em] leading-[0.92] text-white mb-8">
 
           For founders,<br>
@@ -327,8 +305,6 @@
 
         </h1>
 
-        <!-- TEXT -->
-
         <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mb-14 font-light leading-relaxed">
 
           A private rooftop gathering for the founders,
@@ -337,11 +313,7 @@
 
         </p>
 
-        <!-- BUTTONS -->
-
         <div class="flex flex-wrap items-center gap-4">
-
-          <!-- APPLY -->
 
           <a
             href="#apply"
@@ -356,8 +328,6 @@
             ></iconify-icon>
 
           </a>
-
-          <!-- VENUE -->
 
           <a
             href="https://www.l27nashville.com/"
@@ -376,11 +346,7 @@
 
         </div>
 
-        <!-- LIVE STATS -->
-
         <div class="flex flex-wrap gap-5 mt-16">
-
-          <!-- SEATS -->
 
           <div class="glass-panel px-5 py-4 rounded-xl min-w-[180px]">
 
@@ -392,23 +358,7 @@
               16 / 40
             </div>
 
-            <div class="mt-4 w-full bg-white/[0.04] rounded-full h-[3px] overflow-hidden">
-
-              <div class="bg-white/40 h-full w-[40%] relative">
-
-                <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white blur-[1px]"></div>
-
-              </div>
-
-            </div>
-
-            <div class="text-[10px] text-neutral-600 mt-2 tracking-[0.15em] uppercase text-right">
-              40% Allocated
-            </div>
-
           </div>
-
-          <!-- NET WORTH -->
 
           <div class="glass-panel px-5 py-4 rounded-xl min-w-[220px]">
 
@@ -420,34 +370,7 @@
               $30M+
             </div>
 
-            <div class="text-[10px] text-neutral-600 mt-3 tracking-[0.15em] uppercase">
-              Verified Attendees
-            </div>
-
           </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- TICKER -->
-
-    <div class="absolute bottom-0 left-0 w-full z-20 border-t border-white/[0.05] bg-black/20 backdrop-blur-xl overflow-hidden">
-
-      <div class="ticker-wrap">
-
-        <div class="ticker">
-
-          <span>Founder Verified</span>
-          <span>Investor Confirmed</span>
-          <span>Capital Entering Room</span>
-          <span>AI Builder Registered</span>
-          <span>Creator Accepted</span>
-          <span>Private Rooftop Session</span>
-          <span>Founder Verified</span>
-          <span>Investor Confirmed</span>
 
         </div>
 
@@ -491,170 +414,13 @@
 
       </div>
 
-      <!-- IMAGE -->
-
       <div class="glass-card rounded-3xl overflow-hidden">
 
         <img
-          src="assets/262ef4c2-2f64-4872-9367-4d4ba86575fc.png"
+          src="ChatGPT Image May 18, 2026, 09_21_53 AM.png"
           class="w-full h-[260px] md:h-[620px] object-cover object-center"
           alt="L27 Rooftop Nashville"
         >
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- NETWORK -->
-
-  <section class="relative py-24 md:py-32 px-6 border-t border-white/[0.03] bg-[#030303]">
-
-    <div class="max-w-6xl mx-auto">
-
-      <div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
-
-        <div>
-
-          <h2 class="text-xs text-neutral-500 tracking-[0.2em] uppercase mb-3">
-            Live Intelligence
-          </h2>
-
-          <h3 class="text-2xl md:text-4xl font-normal tracking-tighter text-white">
-            Network Capital
-          </h3>
-
-        </div>
-
-        <p class="text-sm text-neutral-500 max-w-sm md:text-right">
-          Real-time aggregation of capital, founder leverage,
-          strategic relationships, and private influence entering the room.
-        </p>
-
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-        <!-- BIG CARD -->
-
-        <div class="md:col-span-2 glass-card p-8 md:p-12 rounded-2xl relative overflow-hidden">
-
-          <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-[80px]"></div>
-
-          <div class="text-xs text-neutral-500 tracking-widest mb-6">
-            COMBINED NET WORTH ATTENDING
-          </div>
-
-          <div class="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter text-white font-mono mb-10">
-            $30M+
-          </div>
-
-          <!-- LIVE GRAPH -->
-
-          <div class="absolute bottom-0 left-0 w-full h-36 opacity-20 pointer-events-none">
-
-            <svg
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              class="w-full h-full stroke-white fill-none"
-              stroke-width="0.5"
-            >
-
-              <path
-                d="M0,100 C20,80 30,90 50,40 C70,-10 80,60 100,20"
-                class="stroke-white/30"
-              ></path>
-
-            </svg>
-
-          </div>
-
-        </div>
-
-        <!-- BUSINESS VALUE -->
-
-        <div class="glass-card p-8 rounded-2xl flex flex-col justify-between">
-
-          <div class="text-xs text-neutral-500 tracking-widest mb-4">
-            BUSINESS VALUATION REPRESENTED
-          </div>
-
-          <div>
-
-            <div class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-2">
-              $120M+
-            </div>
-
-            <div class="text-xs text-neutral-600">
-              Estimated combined enterprise valuation.
-            </div>
-
-          </div>
-
-        </div>
-
-        <!-- CAPACITY -->
-
-        <div class="glass-card p-6 rounded-2xl">
-
-          <div class="text-xs text-neutral-500 tracking-widest mb-2">
-            CAPACITY
-          </div>
-
-          <div class="text-2xl font-medium tracking-tighter text-white">
-            40 Founders
-          </div>
-
-          <div class="mt-4 w-full bg-neutral-900 rounded-full h-1 overflow-hidden">
-
-            <div class="bg-white/40 w-[40%] h-full rounded-full relative">
-
-              <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-white rounded-full blur-[1px]"></div>
-
-            </div>
-
-          </div>
-
-          <div class="text-xs text-neutral-600 mt-2 text-right">
-            16 Seats Taken
-          </div>
-
-        </div>
-
-        <!-- INDUSTRIES -->
-
-        <div class="md:col-span-2 glass-card p-6 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-6">
-
-          <div class="text-xs text-neutral-500 tracking-widest">
-            INDUSTRIES CURATED
-          </div>
-
-          <div class="flex flex-wrap gap-2">
-
-            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-xs text-neutral-300">
-              Artificial Intelligence
-            </span>
-
-            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-xs text-neutral-300">
-              SaaS
-            </span>
-
-            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-xs text-neutral-300">
-              Private Equity
-            </span>
-
-            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-xs text-neutral-300">
-              E-Commerce
-            </span>
-
-            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-xs text-neutral-300">
-              Creator Economy
-            </span>
-
-          </div>
-
-        </div>
 
       </div>
 
@@ -682,8 +448,6 @@
         </p>
 
       </div>
-
-      <!-- FORMSPREE -->
 
       <form
         action="https://formspree.io/f/mkoeneog"
@@ -792,26 +556,6 @@
     </div>
 
   </section>
-
-  <!-- FOOTER -->
-
-  <footer class="relative py-16 px-6 border-t border-white/[0.05] bg-black text-center">
-
-    <div class="tracking-[0.4em] text-sm text-neutral-400 font-medium uppercase mb-6">
-      Founders Clube
-    </div>
-
-    <div class="text-xs text-neutral-600 tracking-wide mb-8">
-      Presented by SEAINT
-    </div>
-
-    <div class="w-px h-6 bg-white/10 mx-auto mb-8"></div>
-
-    <div class="text-xs text-neutral-500 font-light italic tracking-wider">
-      Built for the black horses.
-    </div>
-
-  </footer>
 
 </body>
 
