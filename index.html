@@ -20,6 +20,10 @@
 
   <style>
 
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
       font-family:'Inter',sans-serif;
       background:#030303;
@@ -41,26 +45,30 @@
     /* GLASS */
 
     .glass-panel{
-      background:rgba(20,20,20,.4);
+      background:rgba(20,20,20,.42);
       backdrop-filter:blur(24px);
       -webkit-backdrop-filter:blur(24px);
-      border:1px solid rgba(255,255,255,.04);
-      box-shadow:0 4px 40px rgba(0,0,0,.5);
+      border:1px solid rgba(255,255,255,.05);
+      box-shadow:0 4px 40px rgba(0,0,0,.55);
     }
 
     .glass-card{
       background:linear-gradient(
         145deg,
-        rgba(30,30,30,.45) 0%,
-        rgba(10,10,10,.25) 100%
+        rgba(25,25,25,.42) 0%,
+        rgba(8,8,8,.25) 100%
       );
 
-      backdrop-filter:blur(14px);
+      backdrop-filter:blur(16px);
 
-      border-top:1px solid rgba(255,255,255,.06);
-      border-left:1px solid rgba(255,255,255,.03);
-      border-right:1px solid rgba(255,255,255,.03);
-      border-bottom:1px solid rgba(0,0,0,.5);
+      border:1px solid rgba(255,255,255,.04);
+
+      transition:.4s ease;
+    }
+
+    .glass-card:hover{
+      border-color:rgba(255,255,255,.08);
+      transform:translateY(-2px);
     }
 
     /* INPUTS */
@@ -76,12 +84,7 @@
 
     .custom-input:focus{
       outline:none;
-      border-bottom:1px solid rgba(255,255,255,.5);
-      background:linear-gradient(
-        to top,
-        rgba(255,255,255,.02) 0%,
-        transparent 100%
-      );
+      border-bottom:1px solid rgba(255,255,255,.45);
     }
 
     /* GRID */
@@ -94,7 +97,27 @@
       background-size:40px 40px;
     }
 
-    /* ANIMATIONS */
+    /* FOG */
+
+    @keyframes fog-drift{
+      0%{
+        transform:translateX(-10%) translateY(0);
+      }
+
+      50%{
+        transform:translateX(5%) translateY(-5%);
+      }
+
+      100%{
+        transform:translateX(-10%) translateY(0);
+      }
+    }
+
+    .animate-fog{
+      animation:fog-drift 30s infinite alternate linear;
+    }
+
+    /* FLOAT */
 
     @keyframes float{
       0%{
@@ -102,7 +125,7 @@
       }
 
       50%{
-        transform:translateY(-15px);
+        transform:translateY(-12px);
       }
 
       100%{
@@ -112,27 +135,6 @@
 
     .animate-float{
       animation:float 8s ease-in-out infinite;
-    }
-
-    @keyframes fog-drift{
-      0%{
-        transform:translateX(-10%) translateY(0) scale(1);
-        opacity:.3;
-      }
-
-      50%{
-        transform:translateX(5%) translateY(-5%) scale(1.1);
-        opacity:.5;
-      }
-
-      100%{
-        transform:translateX(-10%) translateY(0) scale(1);
-        opacity:.3;
-      }
-    }
-
-    .animate-fog{
-      animation:fog-drift 30s infinite alternate linear;
     }
 
     /* TICKER */
@@ -169,21 +171,6 @@
       }
     }
 
-    /* SCROLLBAR */
-
-    ::-webkit-scrollbar{
-      width:4px;
-    }
-
-    ::-webkit-scrollbar-track{
-      background:#000;
-    }
-
-    ::-webkit-scrollbar-thumb{
-      background:#333;
-      border-radius:4px;
-    }
-
     /* MOBILE */
 
     @media(max-width:768px){
@@ -199,16 +186,30 @@
 
       .ticker span{
         font-size:9px;
-        letter-spacing:.25em;
       }
 
+    }
+
+    /* SCROLLBAR */
+
+    ::-webkit-scrollbar{
+      width:4px;
+    }
+
+    ::-webkit-scrollbar-track{
+      background:#000;
+    }
+
+    ::-webkit-scrollbar-thumb{
+      background:#333;
+      border-radius:4px;
     }
 
   </style>
 
 </head>
 
-<body class="antialiased font-light overflow-x-hidden relative">
+<body class="antialiased overflow-x-hidden relative">
 
   <div class="grain-overlay"></div>
 
@@ -222,7 +223,7 @@
 
     <a
       href="#apply"
-      class="text-xs tracking-[0.25em] uppercase border-b border-white/20 pb-1 hover:border-white transition-colors duration-300"
+      class="text-xs tracking-[0.25em] uppercase border-b border-white/20 pb-1 hover:border-white transition"
     >
       Apply
     </a>
@@ -264,7 +265,7 @@
 
     </div>
 
-    <!-- FLOATING METRIC -->
+    <!-- FLOATING CARD -->
 
     <div class="absolute top-[22%] right-[7%] hidden xl:block z-20 animate-float">
 
@@ -309,9 +310,13 @@
 
           <span class="w-1.5 h-1.5 bg-white/50 rounded-full"></span>
 
-          <span class="text-[10px] tracking-[0.35em] uppercase text-neutral-400">
+          <a
+            href="https://www.l27nashville.com/"
+            target="_blank"
+            class="text-[10px] tracking-[0.35em] uppercase text-neutral-400 hover:text-white transition"
+          >
             Nashville • June 13 • L27 Rooftop
-          </span>
+          </a>
 
         </div>
 
@@ -459,8 +464,8 @@
         </div>
 
         <p class="text-sm text-neutral-500 max-w-sm md:text-right">
-          Real-time aggregation of the collective leverage, capital,
-          and reach entering the room.
+          Real-time aggregation of capital, founder leverage,
+          strategic relationships, and private influence entering the room.
         </p>
 
       </div>
@@ -471,6 +476,8 @@
 
         <div class="md:col-span-2 glass-card p-8 md:p-12 rounded-2xl relative overflow-hidden">
 
+          <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-[80px]"></div>
+
           <div class="text-xs text-neutral-500 tracking-widest mb-6">
             COMBINED NET WORTH ATTENDING
           </div>
@@ -479,24 +486,44 @@
             $30M+
           </div>
 
+          <!-- LIVE LINE -->
+
+          <div class="absolute bottom-0 left-0 w-full h-36 opacity-20 pointer-events-none">
+
+            <svg
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              class="w-full h-full stroke-white fill-none"
+              stroke-width="0.5"
+            >
+
+              <path
+                d="M0,100 C20,80 30,90 50,40 C70,-10 80,60 100,20"
+                class="stroke-white/30"
+              ></path>
+
+            </svg>
+
+          </div>
+
         </div>
 
-        <!-- AUDIENCE -->
+        <!-- BUSINESS VALUE -->
 
         <div class="glass-card p-8 rounded-2xl flex flex-col justify-between">
 
           <div class="text-xs text-neutral-500 tracking-widest mb-4">
-            AUDIENCE REACH
+            BUSINESS VALUATION REPRESENTED
           </div>
 
           <div>
 
             <div class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-2">
-              150M+
+              $120M+
             </div>
 
             <div class="text-xs text-neutral-600">
-              Across combined social graphs
+              Estimated combined enterprise valuation.
             </div>
 
           </div>
