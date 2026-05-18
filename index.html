@@ -238,14 +238,10 @@
 
     <div class="absolute inset-0">
 
-      <!-- CITY -->
-
       <img
         src="https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=2400&auto=format&fit=crop"
         class="absolute inset-0 w-full h-full object-cover opacity-[0.22] scale-105"
       >
-
-      <!-- OVERLAYS -->
 
       <div class="absolute inset-0 bg-black/70"></div>
 
@@ -253,48 +249,11 @@
 
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.9)_100%)]"></div>
 
-      <!-- GRID -->
-
       <div class="absolute inset-0 bg-grid-pattern opacity-[0.18]"></div>
-
-      <!-- FOG -->
 
       <div class="absolute -bottom-[15%] -left-[10%] w-[50rem] h-[50rem] bg-white/[0.03] rounded-full blur-[120px] animate-fog"></div>
 
       <div class="absolute top-[10%] -right-[10%] w-[40rem] h-[40rem] bg-blue-500/[0.05] rounded-full blur-[140px] animate-fog"></div>
-
-    </div>
-
-    <!-- FLOATING CARD -->
-
-    <div class="absolute top-[22%] right-[7%] hidden xl:block z-20 animate-float">
-
-      <div class="glass-panel rounded-2xl p-5 w-[260px] overflow-hidden relative">
-
-        <div class="text-[10px] tracking-[0.3em] uppercase text-neutral-500 mb-5">
-          Network Intelligence
-        </div>
-
-        <div class="text-4xl font-light tracking-tight text-white mb-1">
-          $30M+
-        </div>
-
-        <div class="text-xs text-neutral-500 mb-6">
-          Combined Founder Net Worth
-        </div>
-
-        <div class="flex items-end gap-1 h-16">
-
-          <div class="w-full bg-white/5 h-[22%] rounded-t-sm"></div>
-          <div class="w-full bg-white/5 h-[35%] rounded-t-sm"></div>
-          <div class="w-full bg-white/10 h-[48%] rounded-t-sm"></div>
-          <div class="w-full bg-white/10 h-[65%] rounded-t-sm"></div>
-          <div class="w-full bg-blue-500/20 h-[85%] rounded-t-sm"></div>
-          <div class="w-full bg-white/20 h-full rounded-t-sm"></div>
-
-        </div>
-
-      </div>
 
     </div>
 
@@ -304,19 +263,22 @@
 
       <div class="max-w-4xl">
 
-        <!-- BADGE -->
+        <!-- DATE -->
 
-        <div class="flex items-center gap-3 mb-10 glass-panel px-5 py-2 rounded-full border border-white/[0.05] w-fit">
+        <div class="flex flex-wrap items-center gap-3 mb-8">
 
-          <span class="w-1.5 h-1.5 bg-white/50 rounded-full"></span>
+          <div class="glass-panel px-5 py-2 rounded-full border border-white/[0.05] flex items-center gap-3">
 
-          <a
-            href="https://www.l27nashville.com/"
-            target="_blank"
-            class="text-[10px] tracking-[0.35em] uppercase text-neutral-400 hover:text-white transition"
-          >
-            Nashville • June 13 • L27 Rooftop
-          </a>
+            <iconify-icon
+              icon="solar:clock-circle-linear"
+              class="text-neutral-500 text-sm"
+            ></iconify-icon>
+
+            <span class="text-[10px] tracking-[0.35em] uppercase text-neutral-400">
+              June 13 • 6PM • 2026
+            </span>
+
+          </div>
 
         </div>
 
@@ -342,9 +304,11 @@
 
         </p>
 
-        <!-- BUTTON -->
+        <!-- BUTTONS -->
 
-        <div class="flex flex-col sm:flex-row items-start gap-5">
+        <div class="flex flex-wrap items-center gap-4">
+
+          <!-- APPLY -->
 
           <a
             href="#apply"
@@ -357,6 +321,23 @@
               icon="solar:arrow-right-linear"
               class="group-hover:translate-x-1 transition-transform"
             ></iconify-icon>
+
+          </a>
+
+          <!-- VENUE -->
+
+          <a
+            href="https://www.l27nashville.com/"
+            target="_blank"
+            class="glass-panel text-sm text-neutral-300 px-6 py-5 rounded-xl tracking-[0.2em] uppercase hover:bg-white/[0.04] transition-all duration-500 border border-white/[0.08] hover:border-white/20 flex items-center gap-3 group"
+          >
+
+            <iconify-icon
+              icon="solar:map-point-wave-linear"
+              class="text-neutral-500 group-hover:text-white transition"
+            ></iconify-icon>
+
+            See Venue
 
           </a>
 
@@ -432,10 +413,57 @@
           <span>AI Builder Registered</span>
           <span>Creator Accepted</span>
           <span>Private Rooftop Session</span>
-          <span>Founder Verified</span>
-          <span>Investor Confirmed</span>
 
         </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- VENUE -->
+
+  <section class="relative py-24 px-6 border-t border-white/[0.03]">
+
+    <div class="max-w-6xl mx-auto">
+
+      <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+
+        <div>
+
+          <h2 class="text-xs text-neutral-500 tracking-[0.2em] uppercase mb-3">
+            Venue
+          </h2>
+
+          <h3 class="text-2xl md:text-4xl font-normal tracking-tighter text-white">
+            L27 Rooftop
+          </h3>
+
+        </div>
+
+        <a
+          href="https://www.l27nashville.com/"
+          target="_blank"
+          class="glass-panel px-5 py-3 rounded-xl border border-white/[0.05] hover:border-white/[0.15] transition text-xs tracking-[0.25em] uppercase text-neutral-300 hover:text-white flex items-center gap-3 w-fit"
+        >
+
+          <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+
+          See Venue
+
+        </a>
+
+      </div>
+
+      <!-- IMAGE -->
+
+      <div class="glass-card rounded-3xl overflow-hidden">
+
+        <img
+          src="/mnt/data/image(253).png"
+          class="w-full object-cover"
+        >
 
       </div>
 
@@ -463,20 +491,11 @@
 
         </div>
 
-        <p class="text-sm text-neutral-500 max-w-sm md:text-right">
-          Real-time aggregation of capital, founder leverage,
-          strategic relationships, and private influence entering the room.
-        </p>
-
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-        <!-- BIG CARD -->
-
         <div class="md:col-span-2 glass-card p-8 md:p-12 rounded-2xl relative overflow-hidden">
-
-          <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-[80px]"></div>
 
           <div class="text-xs text-neutral-500 tracking-widest mb-6">
             COMBINED NET WORTH ATTENDING
@@ -486,29 +505,7 @@
             $30M+
           </div>
 
-          <!-- LIVE LINE -->
-
-          <div class="absolute bottom-0 left-0 w-full h-36 opacity-20 pointer-events-none">
-
-            <svg
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              class="w-full h-full stroke-white fill-none"
-              stroke-width="0.5"
-            >
-
-              <path
-                d="M0,100 C20,80 30,90 50,40 C70,-10 80,60 100,20"
-                class="stroke-white/30"
-              ></path>
-
-            </svg>
-
-          </div>
-
         </div>
-
-        <!-- BUSINESS VALUE -->
 
         <div class="glass-card p-8 rounded-2xl flex flex-col justify-between">
 
@@ -525,68 +522,6 @@
             <div class="text-xs text-neutral-600">
               Estimated combined enterprise valuation.
             </div>
-
-          </div>
-
-        </div>
-
-        <!-- CAPACITY -->
-
-        <div class="glass-card p-6 rounded-2xl">
-
-          <div class="text-xs text-neutral-500 tracking-widest mb-2">
-            CAPACITY
-          </div>
-
-          <div class="text-2xl font-medium tracking-tighter text-white">
-            40 Founders
-          </div>
-
-          <div class="mt-4 w-full bg-neutral-900 rounded-full h-1 overflow-hidden">
-
-            <div class="bg-white/40 w-[40%] h-full rounded-full relative">
-
-              <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-white rounded-full blur-[1px]"></div>
-
-            </div>
-
-          </div>
-
-          <div class="text-xs text-neutral-600 mt-2 text-right">
-            16 Seats Taken
-          </div>
-
-        </div>
-
-        <!-- INDUSTRIES -->
-
-        <div class="md:col-span-2 glass-card p-6 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-6">
-
-          <div class="text-xs text-neutral-500 tracking-widest">
-            INDUSTRIES CURATED
-          </div>
-
-          <div class="flex flex-wrap gap-2">
-
-            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-xs text-neutral-300">
-              Artificial Intelligence
-            </span>
-
-            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-xs text-neutral-300">
-              SaaS
-            </span>
-
-            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-xs text-neutral-300">
-              Private Equity
-            </span>
-
-            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-xs text-neutral-300">
-              E-Commerce
-            </span>
-
-            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-xs text-neutral-300">
-              Creator Economy
-            </span>
 
           </div>
 
@@ -619,8 +554,6 @@
 
       </div>
 
-      <!-- FORMSPREE -->
-
       <form
         action="https://formspree.io/f/mkoeneog"
         method="POST"
@@ -647,46 +580,17 @@
 
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          <input
-            type="text"
-            name="industry"
-            placeholder="Industry"
-            class="custom-input w-full pb-3 text-sm"
-          >
-
-          <input
-            type="text"
-            name="audience"
-            placeholder="Audience Size"
-            class="custom-input w-full pb-3 text-sm"
-          >
-
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          <input
-            type="text"
-            name="social"
-            placeholder="Instagram / Social"
-            class="custom-input w-full pb-3 text-sm"
-          >
-
-          <input
-            type="url"
-            name="website"
-            placeholder="Website"
-            class="custom-input w-full pb-3 text-sm"
-          >
-
-        </div>
+        <input
+          type="text"
+          name="industry"
+          placeholder="Industry"
+          class="custom-input w-full pb-3 text-sm"
+        >
 
         <input
-          type="tel"
-          name="phone"
-          placeholder="Phone Number"
+          type="url"
+          name="website"
+          placeholder="Website"
           class="custom-input w-full pb-3 text-sm"
         >
 
@@ -717,10 +621,6 @@
 
           </button>
 
-          <div class="text-center mt-4 text-[10px] text-neutral-600 tracking-wider uppercase">
-            End-to-end encrypted
-          </div>
-
         </div>
 
       </form>
@@ -728,26 +628,6 @@
     </div>
 
   </section>
-
-  <!-- FOOTER -->
-
-  <footer class="relative py-16 px-6 border-t border-white/[0.05] bg-black text-center">
-
-    <div class="tracking-[0.4em] text-sm text-neutral-400 font-medium uppercase mb-6">
-      Founders Clube
-    </div>
-
-    <div class="text-xs text-neutral-600 tracking-wide mb-8">
-      Presented by SEAINT
-    </div>
-
-    <div class="w-px h-6 bg-white/10 mx-auto mb-8"></div>
-
-    <div class="text-xs text-neutral-500 font-light italic tracking-wider">
-      Built for the black horses.
-    </div>
-
-  </footer>
 
 </body>
 
