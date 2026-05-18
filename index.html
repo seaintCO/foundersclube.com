@@ -1,356 +1,569 @@
-<!-- REPLACE YOUR CURRENT HERO SECTION WITH THIS -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<section class="relative min-h-screen flex items-center overflow-hidden bg-[#030303]">
+  <title>Founders Clube | Private Rooftop Session</title>
 
-```
-<!-- CINEMATIC SKYLINE -->
-<div class="absolute inset-0 overflow-hidden">
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- REAL CITY BACKGROUND -->
-    <img 
-        src="https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=2400&auto=format&fit=crop"
-        class="absolute inset-0 w-full h-full object-cover scale-105 opacity-30"
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#030303;
+      color:#ededed;
+      overflow-x:hidden;
+    }
+
+    /* GRAIN */
+
+    .grain-overlay{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:100;
+      opacity:.04;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* GLASS */
+
+    .glass-panel{
+      background:rgba(20,20,20,.4);
+      backdrop-filter:blur(24px);
+      -webkit-backdrop-filter:blur(24px);
+      border:1px solid rgba(255,255,255,.04);
+      box-shadow:0 4px 40px rgba(0,0,0,.5);
+    }
+
+    .glass-card{
+      background:linear-gradient(
+        145deg,
+        rgba(30,30,30,.45) 0%,
+        rgba(10,10,10,.25) 100%
+      );
+
+      backdrop-filter:blur(14px);
+
+      border-top:1px solid rgba(255,255,255,.06);
+      border-left:1px solid rgba(255,255,255,.03);
+      border-right:1px solid rgba(255,255,255,.03);
+      border-bottom:1px solid rgba(0,0,0,.5);
+    }
+
+    /* INPUTS */
+
+    .custom-input{
+      background:transparent;
+      border:none;
+      border-bottom:1px solid rgba(255,255,255,.1);
+      color:white;
+      transition:.3s ease;
+      border-radius:0;
+    }
+
+    .custom-input:focus{
+      outline:none;
+      border-bottom:1px solid rgba(255,255,255,.5);
+      background:linear-gradient(
+        to top,
+        rgba(255,255,255,.02) 0%,
+        transparent 100%
+      );
+    }
+
+    /* GRID */
+
+    .bg-grid-pattern{
+      background-image:
+      linear-gradient(to right, rgba(255,255,255,.015) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,.015) 1px, transparent 1px);
+
+      background-size:40px 40px;
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes float{
+      0%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-15px);
+      }
+
+      100%{
+        transform:translateY(0px);
+      }
+    }
+
+    .animate-float{
+      animation:float 8s ease-in-out infinite;
+    }
+
+    @keyframes fog-drift{
+      0%{
+        transform:translateX(-10%) translateY(0) scale(1);
+        opacity:.3;
+      }
+
+      50%{
+        transform:translateX(5%) translateY(-5%) scale(1.1);
+        opacity:.5;
+      }
+
+      100%{
+        transform:translateX(-10%) translateY(0) scale(1);
+        opacity:.3;
+      }
+    }
+
+    .animate-fog{
+      animation:fog-drift 30s infinite alternate linear;
+    }
+
+    /* TICKER */
+
+    .ticker-wrap{
+      width:100%;
+      overflow:hidden;
+    }
+
+    .ticker{
+      display:flex;
+      align-items:center;
+      gap:5rem;
+      width:max-content;
+      padding:1rem 0;
+      animation:ticker 30s linear infinite;
+    }
+
+    .ticker span{
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.35em;
+      color:#737373;
+      white-space:nowrap;
+    }
+
+    @keyframes ticker{
+      from{
+        transform:translateX(0);
+      }
+
+      to{
+        transform:translateX(-50%);
+      }
+    }
+
+    /* SCROLLBAR */
+
+    ::-webkit-scrollbar{
+      width:4px;
+    }
+
+    ::-webkit-scrollbar-track{
+      background:#000;
+    }
+
+    ::-webkit-scrollbar-thumb{
+      background:#333;
+      border-radius:4px;
+    }
+
+  </style>
+
+</head>
+
+<body class="antialiased selection:bg-neutral-800 selection:text-white font-light overflow-x-hidden relative">
+
+  <div class="grain-overlay"></div>
+
+  <!-- NAV -->
+
+  <nav class="fixed top-0 w-full z-50 px-6 py-8 flex justify-between items-center">
+
+    <div class="tracking-[0.35em] text-xs text-white/70 uppercase">
+      Founders Clube
+    </div>
+
+    <a
+      href="#apply"
+      class="text-xs tracking-[0.25em] uppercase border-b border-white/20 pb-1 hover:border-white transition-colors duration-300"
     >
+      Apply
+    </a>
 
-    <!-- DARK OVERLAY -->
-    <div class="absolute inset-0 bg-black/65"></div>
+  </nav>
 
-    <!-- TOP GRADIENT -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-[#030303]"></div>
+  <!-- HERO -->
 
-    <!-- SIDE VIGNETTE -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.75)_100%)]"></div>
+  <section class="relative min-h-screen flex items-center overflow-hidden pt-20">
 
-    <!-- GRID -->
-    <div class="absolute inset-0 bg-grid-pattern opacity-[0.15]"></div>
+    <!-- BACKGROUND -->
 
-    <!-- FOG -->
-    <div class="absolute -bottom-[15%] left-[10%] w-[45rem] h-[45rem] bg-white/[0.03] rounded-full blur-[120px] animate-fog"></div>
+    <div class="absolute inset-0">
 
-    <div class="absolute top-[10%] right-[5%] w-[35rem] h-[35rem] bg-blue-500/[0.04] rounded-full blur-[120px] animate-fog"></div>
+      <!-- CITY -->
 
-    <!-- CITY LIGHTS -->
-    <div class="absolute top-[18%] left-[14%] w-1 h-1 bg-white rounded-full blur-[1px] animate-pulse"></div>
-    <div class="absolute top-[34%] right-[20%] w-1 h-1 bg-blue-400 rounded-full blur-[1px] animate-pulse"></div>
-    <div class="absolute top-[42%] left-[70%] w-1 h-1 bg-white rounded-full blur-[1px] animate-pulse"></div>
+      <img
+        src="https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=2400&auto=format&fit=crop"
+        class="absolute inset-0 w-full h-full object-cover opacity-[0.22] scale-105"
+      >
 
-    <!-- NETWORK LINE -->
-    <div class="absolute top-[35%] left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+      <!-- OVERLAYS -->
 
-</div>
+      <div class="absolute inset-0 bg-black/70"></div>
 
-<!-- FLOATING METRIC CARD -->
-<div class="absolute top-[20%] right-[7%] hidden xl:block z-20 animate-float">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-[#030303]"></div>
 
-    <div class="glass-panel rounded-2xl p-5 w-[260px] relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.9)_100%)]"></div>
+
+      <!-- GRID -->
+
+      <div class="absolute inset-0 bg-grid-pattern opacity-[0.18]"></div>
+
+      <!-- FOG -->
+
+      <div class="absolute -bottom-[15%] -left-[10%] w-[50rem] h-[50rem] bg-white/[0.03] rounded-full blur-[120px] animate-fog"></div>
+
+      <div class="absolute top-[10%] -right-[10%] w-[40rem] h-[40rem] bg-blue-500/[0.05] rounded-full blur-[140px] animate-fog"></div>
+
+      <!-- LIGHTS -->
+
+      <div class="absolute top-[22%] left-[14%] w-1 h-1 bg-white rounded-full blur-[1px] animate-pulse"></div>
+
+      <div class="absolute top-[34%] right-[18%] w-1 h-1 bg-blue-400 rounded-full blur-[1px] animate-pulse"></div>
+
+      <div class="absolute top-[45%] left-[72%] w-1 h-1 bg-white rounded-full blur-[1px] animate-pulse"></div>
+
+    </div>
+
+    <!-- FLOATING METRIC -->
+
+    <div class="absolute top-[22%] right-[7%] hidden xl:block z-20 animate-float">
+
+      <div class="glass-panel rounded-2xl p-5 w-[260px] overflow-hidden relative">
 
         <div class="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent"></div>
 
         <div class="relative z-10">
 
-            <div class="flex items-center justify-between mb-6">
-                <div class="text-[10px] tracking-[0.3em] uppercase text-neutral-500">
-                    Live Network
-                </div>
+          <div class="flex items-center justify-between mb-5">
 
-                <iconify-icon 
-                    icon="solar:graph-up-linear" 
-                    class="text-white/40 text-lg"
-                ></iconify-icon>
+            <div class="text-[10px] tracking-[0.3em] uppercase text-neutral-500">
+              Network Intelligence
             </div>
 
-            <div class="text-3xl font-light tracking-tight text-white mb-1">
-                $26M+
-            </div>
+            <iconify-icon
+              icon="solar:graph-up-linear"
+              class="text-white/40 text-lg"
+            ></iconify-icon>
 
-            <div class="text-xs text-neutral-500 mb-6">
-                Combined Founder Net Worth
-            </div>
+          </div>
 
-            <div class="flex items-end gap-1 h-16">
+          <div class="text-4xl font-light tracking-tight text-white mb-1">
+            $26M+
+          </div>
 
-                <div class="w-full bg-white/5 rounded-t h-[20%]"></div>
-                <div class="w-full bg-white/5 rounded-t h-[35%]"></div>
-                <div class="w-full bg-white/10 rounded-t h-[48%]"></div>
-                <div class="w-full bg-white/10 rounded-t h-[62%]"></div>
-                <div class="w-full bg-white/20 rounded-t h-[85%]"></div>
-                <div class="w-full bg-white/30 rounded-t h-full relative overflow-hidden">
+          <div class="text-xs text-neutral-500 mb-6">
+            Combined Founder Net Worth
+          </div>
 
-                    <div class="absolute inset-0 bg-gradient-to-t from-transparent via-white/20 to-transparent animate-pulse"></div>
+          <!-- GRAPH -->
 
-                </div>
+          <div class="flex items-end gap-1 h-16">
 
-            </div>
+            <div class="w-full bg-white/5 h-[22%] rounded-t-sm"></div>
+            <div class="w-full bg-white/5 h-[35%] rounded-t-sm"></div>
+            <div class="w-full bg-white/10 h-[48%] rounded-t-sm"></div>
+            <div class="w-full bg-white/10 h-[65%] rounded-t-sm"></div>
+            <div class="w-full bg-blue-500/20 h-[85%] rounded-t-sm"></div>
+            <div class="w-full bg-white/20 h-full rounded-t-sm"></div>
+
+          </div>
 
         </div>
 
-    </div>
-
-</div>
-
-<!-- LIVE TICKER -->
-<div class="absolute bottom-0 left-0 w-full border-t border-white/[0.06] bg-black/20 backdrop-blur-xl z-20 overflow-hidden">
-
-    <div class="ticker-wrap">
-
-        <div class="ticker">
-
-            <span>Founder Verified</span>
-            <span>Capital Entering Room</span>
-            <span>Investor Confirmed</span>
-            <span>Creator Accepted</span>
-            <span>AI Builder Registered</span>
-            <span>Private Rooftop Session</span>
-            <span>Founder Verified</span>
-            <span>Capital Entering Room</span>
-            <span>Investor Confirmed</span>
-            <span>Creator Accepted</span>
-
-        </div>
+      </div>
 
     </div>
 
-</div>
+    <!-- CONTENT -->
 
-<!-- HERO CONTENT -->
-<div class="relative z-30 max-w-7xl mx-auto w-full px-6 md:px-10">
+    <div class="relative z-30 max-w-7xl mx-auto px-6 w-full">
 
-    <div class="max-w-4xl">
+      <div class="max-w-4xl">
 
         <!-- BADGE -->
-        <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass-panel mb-10">
 
-            <div class="w-1.5 h-1.5 rounded-full bg-white/60"></div>
+        <div class="flex items-center gap-3 mb-10 glass-panel px-5 py-2 rounded-full border border-white/[0.05] w-fit">
 
-            <div class="text-[10px] uppercase tracking-[0.35em] text-neutral-400">
-                Nashville • June 13 • L27 Rooftop
-            </div>
+          <span class="w-1.5 h-1.5 bg-white/50 rounded-full"></span>
+
+          <span class="text-[10px] tracking-[0.35em] uppercase text-neutral-400">
+            Nashville • June 13 • L27 Rooftop
+          </span>
 
         </div>
 
-        <!-- HEADLINE -->
-        <h1 class="text-[4rem] md:text-[8rem] leading-[0.92] tracking-[-0.08em] font-light text-white mb-8">
+        <!-- TITLE -->
 
-            For founders,<br>
+        <h1 class="text-[4rem] md:text-[8rem] font-light tracking-[-0.08em] leading-[0.92] text-white mb-8">
 
-            <span class="text-white/35">
-                by founders.
-            </span>
+          For founders,<br>
+
+          <span class="text-white/35">
+            by founders.
+          </span>
 
         </h1>
 
-        <!-- SUB -->
-        <p class="max-w-2xl text-lg md:text-xl text-neutral-400 leading-relaxed font-light mb-14">
+        <!-- TEXT -->
 
-            A private rooftop gathering for the founders, operators, 
-            creators, investors, and builders shaping what’s next.
+        <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mb-14 font-light leading-relaxed">
+
+          A private rooftop gathering for the founders,
+          operators, creators, investors, and builders shaping
+          the future of technology and influence.
 
         </p>
 
         <!-- BUTTONS -->
-        <div class="flex flex-col sm:flex-row gap-5">
 
-            <a 
-                href="#apply"
-                class="glass-panel group px-8 py-5 rounded-xl flex items-center justify-center gap-3 text-sm tracking-[0.25em] uppercase hover:border-white/20 hover:bg-white/[0.06] transition-all duration-500"
-            >
+        <div class="flex flex-col sm:flex-row items-start gap-5">
 
-                Request Access
+          <a
+            href="#apply"
+            class="glass-panel text-sm text-white px-8 py-5 rounded-xl tracking-[0.25em] uppercase hover:bg-white/[0.05] transition-all duration-500 border border-white/[0.08] hover:border-white/20 flex items-center gap-3 group"
+          >
 
-                <iconify-icon 
-                    icon="solar:arrow-right-linear"
-                    class="group-hover:translate-x-1 transition-transform"
-                ></iconify-icon>
+            Request Access
 
-            </a>
+            <iconify-icon
+              icon="solar:arrow-right-linear"
+              class="group-hover:translate-x-1 transition-transform"
+            ></iconify-icon>
 
-            <a 
-                href="#network"
-                class="text-sm tracking-[0.25em] uppercase text-neutral-500 hover:text-white transition-all duration-300 flex items-center gap-3"
-            >
+          </a>
 
-                View Network
+          <a
+            href="#network"
+            class="text-sm text-neutral-500 hover:text-white transition-all duration-300 tracking-[0.25em] uppercase flex items-center gap-2"
+          >
 
-            </a>
+            View Network
 
-        </div>
-
-        <!-- LIVE STATUS -->
-        <div class="mt-16 flex flex-wrap gap-6">
-
-            <div class="glass-panel px-5 py-4 rounded-xl min-w-[180px]">
-
-                <div class="text-[10px] uppercase tracking-[0.3em] text-neutral-500 mb-2">
-                    Founder Seats
-                </div>
-
-                <div class="text-2xl font-light tracking-tight">
-                    73 / 100
-                </div>
-
-            </div>
-
-            <div class="glass-panel px-5 py-4 rounded-xl min-w-[180px]">
-
-                <div class="text-[10px] uppercase tracking-[0.3em] text-neutral-500 mb-2">
-                    Combined Reach
-                </div>
-
-                <div class="text-2xl font-light tracking-tight">
-                    150M+
-                </div>
-
-            </div>
+          </a>
 
         </div>
 
+        <!-- LIVE STATS -->
+
+        <div class="flex flex-wrap gap-5 mt-16">
+
+          <div class="glass-panel px-5 py-4 rounded-xl min-w-[180px]">
+
+            <div class="text-[10px] uppercase tracking-[0.3em] text-neutral-500 mb-2">
+              Founder Seats
+            </div>
+
+            <div class="text-2xl font-light tracking-tight text-white">
+              73 / 100
+            </div>
+
+          </div>
+
+          <div class="glass-panel px-5 py-4 rounded-xl min-w-[180px]">
+
+            <div class="text-[10px] uppercase tracking-[0.3em] text-neutral-500 mb-2">
+              Combined Reach
+            </div>
+
+            <div class="text-2xl font-light tracking-tight text-white">
+              150M+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-</div>
-```
+    <!-- TICKER -->
 
-</section>
+    <div class="absolute bottom-0 left-0 w-full z-20 border-t border-white/[0.05] bg-black/20 backdrop-blur-xl overflow-hidden">
 
-<!-- ADD THIS CSS UNDER YOUR STYLE TAG -->
+      <div class="ticker-wrap">
 
-<style>
+        <div class="ticker">
 
-.ticker-wrap{
-    width:100%;
-    overflow:hidden;
-}
+          <span>Founder Verified</span>
+          <span>Investor Confirmed</span>
+          <span>Capital Entering Room</span>
+          <span>AI Builder Registered</span>
+          <span>Creator Accepted</span>
+          <span>Private Rooftop Session</span>
+          <span>Founder Verified</span>
+          <span>Investor Confirmed</span>
 
-.ticker{
-    display:flex;
-    gap:5rem;
-    width:max-content;
-    padding:1rem 0;
-    animation:ticker 30s linear infinite;
-}
+        </div>
 
-.ticker span{
-    font-size:10px;
-    letter-spacing:.35em;
-    text-transform:uppercase;
-    color:#737373;
-    white-space:nowrap;
-}
+      </div>
 
-@keyframes ticker{
-    from{
-        transform:translateX(0);
-    }
-    to{
-        transform:translateX(-50%);
-    }
-}
-
-</style>
-
-<!-- REPLACE YOUR FORM WITH THIS -->
-
-<form 
-    action="https://formspree.io/f/mkoeneog"
-    method="POST"
-    class="space-y-6"
->
-
-```
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-    <input 
-        type="text" 
-        name="name"
-        placeholder="Full Name" 
-        class="custom-input w-full pb-3 text-sm"
-        required
-    >
-
-    <input 
-        type="text" 
-        name="company"
-        placeholder="Brand / Company" 
-        class="custom-input w-full pb-3 text-sm"
-        required
-    >
-
-</div>
-
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-    <input 
-        type="text"
-        name="industry"
-        placeholder="Industry"
-        class="custom-input w-full pb-3 text-sm"
-    >
-
-    <input 
-        type="text"
-        name="audience"
-        placeholder="Audience Size"
-        class="custom-input w-full pb-3 text-sm"
-    >
-
-</div>
-
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-    <input 
-        type="text"
-        name="social"
-        placeholder="Instagram / Social"
-        class="custom-input w-full pb-3 text-sm"
-    >
-
-    <input 
-        type="url"
-        name="website"
-        placeholder="Website"
-        class="custom-input w-full pb-3 text-sm"
-    >
-
-</div>
-
-<input 
-    type="tel"
-    name="phone"
-    placeholder="Phone Number"
-    class="custom-input w-full pb-3 text-sm"
->
-
-<textarea 
-    name="building"
-    rows="2"
-    placeholder="What are you currently building?"
-    class="custom-input w-full py-3 text-sm resize-none"
-></textarea>
-
-<textarea 
-    name="reason"
-    rows="2"
-    placeholder="Why do you want to attend?"
-    class="custom-input w-full py-3 text-sm resize-none"
-></textarea>
-
-<div class="pt-6">
-
-    <button 
-        type="submit"
-        class="w-full bg-white text-black py-4 text-sm tracking-[0.25em] uppercase hover:bg-neutral-200 transition-all duration-300 rounded-xl flex justify-center items-center gap-2"
-    >
-
-        Request Access
-
-        <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
-
-    </button>
-
-    <div class="text-center mt-4 text-[10px] text-neutral-600 tracking-[0.25em] uppercase">
-        Applications reviewed privately
     </div>
 
-</div>
-```
+  </section>
 
-</form>
+  <!-- APPLY -->
+
+  <section
+    id="apply"
+    class="relative py-32 px-6 border-t border-white/[0.03] bg-[#020202] flex justify-center"
+  >
+
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] max-w-2xl h-[80%] bg-white/[0.02] rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="w-full max-w-xl relative z-10 glass-card p-8 md:p-12 rounded-3xl">
+
+      <div class="text-center mb-10">
+
+        <iconify-icon
+          icon="solar:lock-keyhole-minimalistic-linear"
+          class="text-2xl text-neutral-500 mb-4"
+        ></iconify-icon>
+
+        <h2 class="text-2xl font-normal tracking-tighter text-white mb-2">
+          Request Access
+        </h2>
+
+        <p class="text-xs text-neutral-500 tracking-wide">
+          Applications are reviewed privately by the board.
+        </p>
+
+      </div>
+
+      <!-- FORMSPREE -->
+
+      <form
+        action="https://formspree.io/f/mkoeneog"
+        method="POST"
+        class="space-y-6"
+      >
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            class="custom-input w-full pb-3 text-sm"
+            required
+          >
+
+          <input
+            type="text"
+            name="company"
+            placeholder="Brand / Company"
+            class="custom-input w-full pb-3 text-sm"
+            required
+          >
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <input
+            type="text"
+            name="industry"
+            placeholder="Industry"
+            class="custom-input w-full pb-3 text-sm"
+          >
+
+          <input
+            type="text"
+            name="audience"
+            placeholder="Audience Size"
+            class="custom-input w-full pb-3 text-sm"
+          >
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <input
+            type="text"
+            name="social"
+            placeholder="Instagram / Social"
+            class="custom-input w-full pb-3 text-sm"
+          >
+
+          <input
+            type="url"
+            name="website"
+            placeholder="Website"
+            class="custom-input w-full pb-3 text-sm"
+          >
+
+        </div>
+
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone Number"
+          class="custom-input w-full pb-3 text-sm"
+        >
+
+        <textarea
+          name="building"
+          placeholder="What are you currently building?"
+          rows="2"
+          class="custom-input w-full py-3 text-sm resize-none"
+        ></textarea>
+
+        <textarea
+          name="reason"
+          placeholder="Why do you want to attend?"
+          rows="2"
+          class="custom-input w-full py-3 text-sm resize-none"
+        ></textarea>
+
+        <div class="pt-6">
+
+          <button
+            type="submit"
+            class="w-full bg-white text-black py-4 text-sm font-medium hover:bg-neutral-200 transition-colors duration-300 rounded-xl flex justify-center items-center gap-2"
+          >
+
+            Request Access
+
+            <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+
+          </button>
+
+          <div class="text-center mt-4 text-[10px] text-neutral-600 tracking-wider uppercase">
+            End-to-end encrypted
+          </div>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </section>
+
+</body>
+</html>
